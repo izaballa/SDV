@@ -1,0 +1,37 @@
+apiVersion: v0.1
+workloads:
+  mqtt-broker:
+    runtime: podman
+    agent: agent_A
+    runtimeConfig: |
+      image: docker.io/library/eclipse-mosquitto:2.0.15 
+      commandArgs:
+        [
+          "sh", "-c",
+          "echo 'listener 1883 192.168.1.11\nallow_anonymous true' > /mosquitto/config/mosquitto.conf && mosquitto -c /mosquitto/config/mosquitto.conf"
+        ]
+      commandOptions: ["--net=host"]
+  speed-provider:
+    runtime: podman
+    agent: agent_A
+    dependencies:
+      mqtt-broker: ADD_COND_RUNNING
+    runtimeConfig: |
+      image: localhost:5000/speed-provider-mqtt:latest
+      commandOptions:
+        - "--net=host"
+        - "-e"
+        - "MQTT_BROKER_ADDR=192.168.1.11"
+        - "-e"
+        - "SPEED_PROVIDER_MODE=auto"
+  speed-consumer:
+    runtime: podman
+    agent: infotainment
+    dependencies:
+      mqtt-broker: ADD_COND_RUNNING
+    runtimeConfig: |
+      image: localhost:5000/speed-consumer-mqtt:latest
+      commandOptions:
+        - "--net=host"
+        - "-e"
+        - "MQTT_BROKER_ADDR=192.168.1.11"
