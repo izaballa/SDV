@@ -4,7 +4,7 @@ workloads:
     runtime: podman
     agent: agent_A
     runtimeConfig: |
-      image: docker.io/library/eclipse-mosquitto:2.0.15 
+      image: ghcr.io/izaballa/eclipse-mosquitto:2.0.15 
       commandArgs:
         [
           "sh", "-c",
@@ -17,7 +17,7 @@ workloads:
     dependencies:
       mqtt-broker: ADD_COND_RUNNING
     runtimeConfig: |
-      image: localhost:5000/speed-provider-mqtt:latest
+      image: ghcr.io/izaballa/speed-provider-mqtt:latest
       commandOptions:
         - "--net=host"
         - "-e"
@@ -30,7 +30,7 @@ workloads:
     dependencies:
       mqtt-broker: ADD_COND_RUNNING
     runtimeConfig: |
-      image: localhost:5000/speed-consumer-mqtt:latest
+      image: ghcr.io/izaballa/speed-consumer-mqtt:latest
       commandOptions:
         - "--net=host"
         - "-e"
