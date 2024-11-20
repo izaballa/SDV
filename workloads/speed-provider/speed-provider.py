@@ -1,6 +1,7 @@
 import os
 import time
 import sys
+import threading
 from datetime import datetime
 import paho.mqtt.client as mqtt
 from flask import Flask, request, render_template
@@ -57,14 +58,19 @@ def disconnect_mqtt():
     client.disconnect()  # Desconectar del broker MQTT
 
 if __name__ == '__main__':
-    connect_mqtt()
-    if mode == 'webui':
-        log("Web UI mode")
-        app.run(host='0.0.0.0', port=5000)
-    elif mode == 'auto':
-        log("Automatic mode")
-        auto_thread = threading.Thread(target=automatic)
-        auto_thread.start()
-        auto_thread.join()
+    try:
+        connect_mqtt()
+        if mode == 'webui':
+            log("Web UI mode")
+            app.run(host='0.0.0.0', port=5000)
+        elif mode == 'auto':
+            log("Automatic mode")
+            auto_thread = threading.Thread(target=automatic)
+            auto_thread.start()
+            auto_thread.join()
+    except KeyboardInterrupt:
+        disconnect_mqtt()
+        log("Stopping MQTT client")
     finally:
-        disconnect_mqtt()  # Asegurarse de que el cliente MQTT se desconecta correctamente
+        disconnect_mqtt()
+        log("MQTT client disconnected")

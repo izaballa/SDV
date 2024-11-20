@@ -38,9 +38,12 @@ stop_agent_services() {
 
     # Comando remoto para detener contenedores relacionados
     REMOTE_COMMAND="
-        podman ps -a | grep speed-consumer | awk '{print \$1}' | xargs -r podman stop;
-        podman ps -a | grep speed-consumer | awk '{print \$1}' | xargs -r podman rm;
+         podman rm -a;
+         podman rma -a;
     "
+    #    podman ps -a | grep speed-consumer | awk '{print \$1}' | xargs -r podman stop;
+    #    podman ps -a | grep speed-consumer | awk '{print \$1}' | xargs -r podman rm;
+    #"
 
     ssh "$SSH_USER@$AGENT_IP" "$REMOTE_COMMAND"
 
@@ -54,11 +57,14 @@ stop_agent_services() {
 # Paso 3: Detener contenedores relacionados en el servidor
 stop_server_containers() {
     log "Deteniendo contenedores en el servidor..."
-    sudo podman ps -a | grep mqtt-broker | awk '{print $1}' | xargs -r sudo podman stop
-    sudo podman ps -a | grep mqtt-broker | awk '{print $1}' | xargs -r sudo podman rm
+    #sudo podman ps -a | grep mqtt-broker | awk '{print $1}' | xargs -r sudo podman stop
+    #sudo podman ps -a | grep mqtt-broker | awk '{print $1}' | xargs -r sudo podman rm
 
-    sudo podman ps -a | grep speed-provider | awk '{print $1}' | xargs -r sudo podman stop
-    sudo podman ps -a | grep speed-provider | awk '{print $1}' | xargs -r sudo podman rm
+    #sudo podman ps -a | grep speed-provider | awk '{print $1}' | xargs -r sudo podman stop
+    #sudo podman ps -a | grep speed-provider | awk '{print $1}' | xargs -r sudo podman rm
+
+    sudo podman rm -a
+    sudo podman rmi -a
 
     log "Contenedores en el servidor detenidos y eliminados."
 }

@@ -54,6 +54,8 @@ try:
     while True:
         pass
 except KeyboardInterrupt:
+    client.loop_stop()
+    client.disconnect()
     log("Stopping MQTT client")
 finally:
     client.loop_stop()

@@ -21,26 +21,27 @@ error() {
 }
 
 # Paso 1: Configurar ank-server.service
-configure_ank_server_service() {
-    log "Editando el archivo /etc/systemd/system/ank-server.service"
-    if grep -q "--address 0.0.0.0:25551" /etc/systemd/system/ank-server.service; then
-        warn "La línea '--address 0.0.0.0:25551' ya está configurada."
-    else
-        sudo sed -i '/ExecStart=\/usr\/local\/bin\/ank-server --insecure --startup-config \/etc\/ankaios\/state.yaml/a --address 0.0.0.0:25551' /etc/systemd/system/ank-server.service
-        log "Línea '--address 0.0.0.0:25551' añadida."
-    fi
-}
+#configure_ank_server_service() {
+#    log "Editando el archivo /etc/systemd/system/ank-server.service"
+#    if grep -Fq "--address 0.0.0.0:25551" /etc/systemd/system/ank-server.service; then
+#        warn "La línea '--address 0.0.0.0:25551' ya está configurada."
+#    else
+#        sudo sed -i '/ExecStart=\/usr\/local\/bin\/ank-server --insecure --startup-config \/etc\/ankaios\/state.yaml/a --address 0.0.0.0:25551' /etc/systemd/system/ank-server.service
+#        log "Línea '--address 0.0.0.0:25551' añadida."
+#    fi
+#}
+
 
 # Paso 2: Cargar configuración inicial state.yaml
 copy_state_yaml() {
     log "Copiando el archivo state.yaml desde la carpeta 'config'..."
     
     # Verificar si el archivo state.yaml existe en la carpeta config
-    if [ -f "./config/state.yaml" ]; then
-        sudo cp ./config/state.yaml /etc/ankaios/state.yaml 
+    if [ -f "../config/state.yaml" ]; then
+        sudo cp ../config/state.yaml /etc/ankaios/state.yaml 
         log "El archivo state.yaml ha sido copiado correctamente."
     else
-        error "El archivo ./config/state.yaml no existe. Asegúrate de que está en la carpeta correcta."
+        error "El archivo ../config/state.yaml no existe. Asegúrate de que está en la carpeta correcta."
         exit 1
     fi
 }
@@ -65,8 +66,7 @@ start_agent() {
     read -p "Introduce la IP del agente (ej. 192.168.1.10): " AGENT_IP
 
     # Comando remoto a ejecutar
-    REMOTE_COMMAND="export ANK_SERVER_URL=http://$SERVER_IP:25551 && \
-    ank-agent -k --name infotainment --server-url \$ANK_SERVER_URL"
+    REMOTE_COMMAND="ank-agent -k --name infotainment --server-url http://$SERVER_IP:25551"
     
     # Conectar por SSH y ejecutar el comando en la máquina remota
     ssh "$SSH_USER@$AGENT_IP" "$REMOTE_COMMAND"
@@ -95,7 +95,7 @@ show_logs() {
 # Ejecución del script
 main() {
     log "Automatización de puesta en marcha de Eclipse Ankaios."
-    configure_ank_server_service
+    #configure_ank_server_service
     copy_state_yaml
     start_server_services
     start_agent
