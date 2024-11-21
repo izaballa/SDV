@@ -33,18 +33,18 @@ error() {
 
 
 # Paso 2: Cargar configuración inicial state.yaml
-copy_state_yaml() {
-    log "Copiando el archivo state.yaml desde la carpeta 'config'..."
+#copy_state_yaml() {
+#    log "Copiando el archivo state.yaml desde la carpeta 'config'..."
     
     # Verificar si el archivo state.yaml existe en la carpeta config
-    if [ -f "../config/state.yaml" ]; then
-        sudo cp ../config/state.yaml /etc/ankaios/state.yaml 
-        log "El archivo state.yaml ha sido copiado correctamente."
-    else
-        error "El archivo ../config/state.yaml no existe. Asegúrate de que está en la carpeta correcta."
-        exit 1
-    fi
-}
+#    if [ -f "../config/state.yaml" ]; then
+#        sudo cp ../config/state.yaml /etc/ankaios/state.yaml 
+#        log "El archivo state.yaml ha sido copiado correctamente."
+#    else
+#        error "El archivo ../config/state.yaml no existe. Asegúrate de que está en la carpeta correcta."
+#        exit 1
+#    fi
+#}
 
 # Paso 3: Iniciar ank-server y ank-agent en el servidor
 start_server_services() {
@@ -64,12 +64,10 @@ start_agent() {
     # Pedir usuario SSH e IP del agente
     read -p "Introduce el usuario SSH del agente (ej. natxozm13): " SSH_USER
     read -p "Introduce la IP del agente (ej. 192.168.1.10): " AGENT_IP
-
-    # Comando remoto a ejecutar
-    REMOTE_COMMAND="ank-agent -k --name infotainment --server-url http://$SERVER_IP:25551"
     
-    # Conectar por SSH y ejecutar el comando en la máquina remota
-    ssh "$SSH_USER@$AGENT_IP" "$REMOTE_COMMAND"
+    # Conectar por SSH y ejecutar el comando en la máquina remota (Igual no es necesario)
+    # gnome-terminal -- bash -c "ssh \"$SSH_USER@$AGENT_IP\" 'ank-agent -k --name infotainment --server-url http://$SERVER_IP:25551'; exec bash"
+    
     
     if [ $? -eq 0 ]; then
         log "Agente iniciado remotamente en $AGENT_IP."
@@ -77,7 +75,6 @@ start_agent() {
         error "Error al iniciar el agente en la máquina remota $AGENT_IP."
     fi
 }
-
 
 # Paso 5: Abrir ventanas de logs
 show_logs() {
@@ -88,15 +85,15 @@ show_logs() {
     gnome-terminal -- bash -c "sudo podman logs -f \$(sudo podman ps -a | grep mqtt-broker | awk '{print \$1}'); exec bash"
     gnome-terminal -- bash -c "sudo podman logs -f \$(sudo podman ps -a | grep speed-provider | awk '{print \$1}'); exec bash"
     
-    log "Logs del agente (remoto):"
-    ssh -t "$SSH_USER@$AGENT_IP" "podman logs -f \$(podman ps -a | grep speed-consumer | awk '{print \$1}')"
+    #log "Logs del agente (remoto):" Ejecutar en terminal remota
+    #gnome-terminal -- bash -c "ssh \"$SSH_USER@$AGENT_IP\" 'podman logs -f $(podman ps -a | grep speed-consumer | awk '{print $1}')'; exec bash"
 }
 
 # Ejecución del script
 main() {
     log "Automatización de puesta en marcha de Eclipse Ankaios."
     #configure_ank_server_service
-    copy_state_yaml
+    #copy_state_yaml
     start_server_services
     start_agent
     show_logs

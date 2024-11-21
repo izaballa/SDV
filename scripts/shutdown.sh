@@ -20,12 +20,12 @@ error() {
     echo -e "${RED}==>${NC} $1"
 }
 
-# Paso 1: Detener servicios en el servidor
-stop_server_services() {
-    log "Deteniendo servicios en el servidor..."
-    sudo systemctl stop ank-agent.service
-    sudo systemctl stop ank-server.service
-    log "Servicios en el servidor detenidos."
+# Paso 1: Eliminar workloads
+delete_workloads() {
+    log "Eliminando workloads..."
+    ank -k delete workload speed-consumer
+    ank -k delete workload speed-provider
+    ank -k delete workload mqtt-broker
 }
 
 # Paso 2: Detener servicios y contenedores en el agente remoto
@@ -36,16 +36,7 @@ stop_agent_services() {
     read -p "Introduce el usuario SSH del agente (ej. natxozm13): " SSH_USER
     read -p "Introduce la IP del agente (ej. 192.168.1.10): " AGENT_IP
 
-    # Comando remoto para detener contenedores relacionados
-    REMOTE_COMMAND="
-         podman rm -a;
-         podman rma -a;
-    "
-    #    podman ps -a | grep speed-consumer | awk '{print \$1}' | xargs -r podman stop;
-    #    podman ps -a | grep speed-consumer | awk '{print \$1}' | xargs -r podman rm;
-    #"
-
-    ssh "$SSH_USER@$AGENT_IP" "$REMOTE_COMMAND"
+    ssh -t "$SSH_USER@$AGENT_IP" 'sudo systemctl stop ank-agent.service'
 
     if [ $? -eq 0 ]; then
         log "Servicios y contenedores en el agente remoto detenidos."
@@ -54,27 +45,36 @@ stop_agent_services() {
     fi
 }
 
-# Paso 3: Detener contenedores relacionados en el servidor
-stop_server_containers() {
-    log "Deteniendo contenedores en el servidor..."
-    #sudo podman ps -a | grep mqtt-broker | awk '{print $1}' | xargs -r sudo podman stop
-    #sudo podman ps -a | grep mqtt-broker | awk '{print $1}' | xargs -r sudo podman rm
-
-    #sudo podman ps -a | grep speed-provider | awk '{print $1}' | xargs -r sudo podman stop
-    #sudo podman ps -a | grep speed-provider | awk '{print $1}' | xargs -r sudo podman rm
-
-    sudo podman rm -a
-    sudo podman rmi -a
-
-    log "Contenedores en el servidor detenidos y eliminados."
+# Paso 3: Detener servicios en el servidor
+stop_server_services() {
+    log "Deteniendo servicios en el servidor..."
+    sudo systemctl stop ank-agent.service
+    sudo systemctl stop ank-server.service
+    log "Servicios en el servidor detenidos."
 }
+
+# Paso 4: Cerrar terminales
+close_opened_terminals() {
+    log "Cerrando terminales abiertas por gnome-terminal..."
+
+    # Buscar y terminar procesos de terminal abiertos
+    pkill gnome-terminal
+    
+    if [ $? -eq 0 ]; then
+        log "Terminales cerradas correctamente."
+    else
+        warn "No se encontraron terminales abiertas para cerrar."
+    fi
+}
+
 
 # Ejecución del script
 main() {
     log "Automatización de cierre de Eclipse Ankaios."
-    stop_server_services
+    delete_workloads
     stop_agent_services
-    stop_server_containers
+    stop_server_services
+    close_opened_terminals
     log "Cierre completado."
 }
 
