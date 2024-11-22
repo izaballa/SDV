@@ -66,7 +66,7 @@ start_agent() {
     read -p "Introduce la IP del agente (ej. 192.168.1.10): " AGENT_IP
     
     # Conectar por SSH y ejecutar el comando en la máquina remota (Igual no es necesario)
-    # gnome-terminal -- bash -c "ssh \"$SSH_USER@$AGENT_IP\" 'ank-agent -k --name infotainment --server-url http://$SERVER_IP:25551'; exec bash"
+    gnome-terminal -- bash -c "ssh \"$SSH_USER@$AGENT_IP\" 'ank-agent -k --name infotainment --server-url http://$SERVER_IP:25551'; exec bash"
     
     
     if [ $? -eq 0 ]; then
