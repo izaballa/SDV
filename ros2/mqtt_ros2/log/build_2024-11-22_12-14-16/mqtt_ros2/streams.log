@@ -1,0 +1,36 @@
+[0.929s] Invoking command in '/home/natxozm13/Desktop/mqtt_ros2/src/mqtt_ros2': PYTHONPATH=/home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/mqtt_ros2 build --build-base /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/build install --record /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/install.log --single-version-externally-managed install_data
+[1.233s] running egg_info
+[1.233s] creating ../../build/mqtt_ros2/mqtt_ros2.egg-info
+[1.235s] writing ../../build/mqtt_ros2/mqtt_ros2.egg-info/PKG-INFO
+[1.235s] writing dependency_links to ../../build/mqtt_ros2/mqtt_ros2.egg-info/dependency_links.txt
+[1.235s] writing entry points to ../../build/mqtt_ros2/mqtt_ros2.egg-info/entry_points.txt
+[1.235s] writing requirements to ../../build/mqtt_ros2/mqtt_ros2.egg-info/requires.txt
+[1.235s] writing top-level names to ../../build/mqtt_ros2/mqtt_ros2.egg-info/top_level.txt
+[1.236s] writing manifest file '../../build/mqtt_ros2/mqtt_ros2.egg-info/SOURCES.txt'
+[1.293s] reading manifest file '../../build/mqtt_ros2/mqtt_ros2.egg-info/SOURCES.txt'
+[1.294s] writing manifest file '../../build/mqtt_ros2/mqtt_ros2.egg-info/SOURCES.txt'
+[1.294s] running build
+[1.294s] running build_py
+[1.295s] creating /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/build
+[1.295s] creating /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/build/lib
+[1.295s] creating /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/build/lib/mqtt_ros2
+[1.295s] copying mqtt_ros2/__init__.py -> /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/build/lib/mqtt_ros2
+[1.295s] running install
+[1.296s] running install_lib
+[1.297s] creating /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages/mqtt_ros2
+[1.297s] copying /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/build/lib/mqtt_ros2/__init__.py -> /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages/mqtt_ros2
+[1.297s] byte-compiling /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages/mqtt_ros2/__init__.py to __init__.cpython-38.pyc
+[1.299s] running install_data
+[1.299s] creating /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/share/ament_index
+[1.300s] creating /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/share/ament_index/resource_index
+[1.300s] creating /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/share/ament_index/resource_index/packages
+[1.300s] copying resource/mqtt_ros2 -> /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/share/ament_index/resource_index/packages
+[1.300s] creating /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/share/mqtt_ros2/config
+[1.300s] copying config/speed_provider_config.yaml -> /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/share/mqtt_ros2/config
+[1.300s] copying package.xml -> /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/share/mqtt_ros2
+[1.300s] running install_egg_info
+[1.302s] Copying ../../build/mqtt_ros2/mqtt_ros2.egg-info to /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages/mqtt_ros2-0.0.0-py3.8.egg-info
+[1.303s] running install_scripts
+[1.327s] Installing speed_provider_node script to /home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/lib/mqtt_ros2
+[1.327s] writing list of installed files to '/home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/install.log'
+[1.359s] Invoked command in '/home/natxozm13/Desktop/mqtt_ros2/src/mqtt_ros2' returned '0': PYTHONPATH=/home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/natxozm13/Desktop/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/mqtt_ros2 build --build-base /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/build install --record /home/natxozm13/Desktop/mqtt_ros2/build/mqtt_ros2/install.log --single-version-externally-managed install_data
