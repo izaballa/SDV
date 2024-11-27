@@ -8,12 +8,17 @@ class SpeedProviderNode(Node):
     def __init__(self):
         super().__init__('speed_provider_node')
         
-        # Parámetros configurables (No pilla el *.yaml)
-        self.mqtt_broker = self.declare_parameter('mqtt_broker', '192.168.1.11').get_parameter_value().string_value
+        # Parámetros configurables (Posible fallo el *.yaml)
+        self.mqtt_broker = self.declare_parameter('mqtt_broker', '127.0.0.1').get_parameter_value().string_value
         self.mqtt_port = self.declare_parameter('mqtt_port', 1883).get_parameter_value().integer_value
         self.mqtt_topic = self.declare_parameter('mqtt_topic', 'Vehicle/Speed').get_parameter_value().string_value
         self.ros_topic = self.declare_parameter('ros_topic', '/drive').get_parameter_value().string_value
         
+        self.get_logger().info(f"MQTT Broker: {self.mqtt_broker}")
+        self.get_logger().info(f"MQTT Port: {self.mqtt_port}")
+        self.get_logger().info(f"MQTT Topic: {self.mqtt_topic}")
+        self.get_logger().info(f"ROS Topic: {self.ros_topic}")
+
         # Crear un publicador de ROS2
         self.publisher_ = self.create_publisher(AckermannDriveStamped, self.ros_topic, 10)
         

@@ -9,7 +9,7 @@ def generate_launch_description():
             name='speed_provider_node',
             output='screen',
             parameters=[
-                'config/speed_provider_config.yaml'
+                '../config/speed_provider_config.yaml'
             ]
         ),
     ])
