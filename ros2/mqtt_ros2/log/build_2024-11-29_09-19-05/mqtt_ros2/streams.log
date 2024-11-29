@@ -1,0 +1,24 @@
+[0.627s] Invoking command in '/home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/src/mqtt_ros2': PYTHONPATH=/home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mqtt_ros2 build --build-base /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/build install --record /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/install.log --single-version-externally-managed install_data
+[0.842s] running egg_info
+[0.842s] writing ../../build/mqtt_ros2/mqtt_ros2.egg-info/PKG-INFO
+[0.843s] writing dependency_links to ../../build/mqtt_ros2/mqtt_ros2.egg-info/dependency_links.txt
+[0.843s] writing entry points to ../../build/mqtt_ros2/mqtt_ros2.egg-info/entry_points.txt
+[0.843s] writing requirements to ../../build/mqtt_ros2/mqtt_ros2.egg-info/requires.txt
+[0.843s] writing top-level names to ../../build/mqtt_ros2/mqtt_ros2.egg-info/top_level.txt
+[0.873s] reading manifest file '../../build/mqtt_ros2/mqtt_ros2.egg-info/SOURCES.txt'
+[0.874s] writing manifest file '../../build/mqtt_ros2/mqtt_ros2.egg-info/SOURCES.txt'
+[0.874s] running build
+[0.874s] running build_py
+[0.874s] copying mqtt_ros2/speed_provider_node.py -> /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/build/lib/mqtt_ros2
+[0.875s] running install
+[0.875s] running install_lib
+[0.876s] copying /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/build/lib/mqtt_ros2/speed_provider_node.py -> /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages/mqtt_ros2
+[0.877s] byte-compiling /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages/mqtt_ros2/speed_provider_node.py to speed_provider_node.cpython-38.pyc
+[0.878s] running install_data
+[0.879s] running install_egg_info
+[0.880s] removing '/home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages/mqtt_ros2-1.0.1-py3.8.egg-info' (and everything under it)
+[0.882s] Copying ../../build/mqtt_ros2/mqtt_ros2.egg-info to /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages/mqtt_ros2-1.0.1-py3.8.egg-info
+[0.882s] running install_scripts
+[0.897s] Installing speed_provider_node script to /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/install/mqtt_ros2/lib/mqtt_ros2
+[0.898s] writing list of installed files to '/home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/install.log'
+[0.918s] Invoked command in '/home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/src/mqtt_ros2' returned '0': PYTHONPATH=/home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/install/mqtt_ros2/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mqtt_ros2 build --build-base /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/build install --record /home/natxozm13/Desktop/SDV/ros2/mqtt_ros2/build/mqtt_ros2/install.log --single-version-externally-managed install_data

@@ -8,8 +8,8 @@ class SpeedProviderNode(Node):
     def __init__(self):
         super().__init__('speed_provider_node')
         
-        # Parámetros configurables (Posible fallo el *.yaml)
-        self.mqtt_broker = self.declare_parameter('mqtt_broker', '127.0.0.1').get_parameter_value().string_value
+        # Parámetros configurables 
+        self.mqtt_broker = self.declare_parameter('mqtt_broker', '127.0.0.1').get_parameter_value().string_value 
         self.mqtt_port = self.declare_parameter('mqtt_port', 1883).get_parameter_value().integer_value
         self.mqtt_topic = self.declare_parameter('mqtt_topic', 'Vehicle/Speed').get_parameter_value().string_value
         self.ros_topic = self.declare_parameter('ros_topic', '/drive').get_parameter_value().string_value
@@ -65,7 +65,7 @@ def main(args=None):
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
-        node.get_logger().info("Shutting down node.")
+        node.get_logger().info("Shutting down MQTT-ROS2 node.")
     finally:
         node.destroy_node()
         rclpy.shutdown()

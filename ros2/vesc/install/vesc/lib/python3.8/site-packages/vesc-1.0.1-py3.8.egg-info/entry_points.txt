@@ -1,0 +1,3 @@
+[console_scripts]
+vesc_node = vesc.vesc_node:main
+

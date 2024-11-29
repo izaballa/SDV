@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/vesc/vesc.egg-info/PKG-INFO
+../../build/vesc/vesc.egg-info/SOURCES.txt
+../../build/vesc/vesc.egg-info/dependency_links.txt
+../../build/vesc/vesc.egg-info/entry_points.txt
+../../build/vesc/vesc.egg-info/requires.txt
+../../build/vesc/vesc.egg-info/top_level.txt
+../../build/vesc/vesc.egg-info/zip-safe
+resource/vesc
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
+vesc/__init__.py
+vesc/vesc_node.py

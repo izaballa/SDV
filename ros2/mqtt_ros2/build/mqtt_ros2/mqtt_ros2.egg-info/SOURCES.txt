@@ -8,7 +8,6 @@ setup.py
 ../../build/mqtt_ros2/mqtt_ros2.egg-info/requires.txt
 ../../build/mqtt_ros2/mqtt_ros2.egg-info/top_level.txt
 ../../build/mqtt_ros2/mqtt_ros2.egg-info/zip-safe
-config/speed_provider_config.yaml
 launch/speed_provider.launch.py
 mqtt_ros2/__init__.py
 mqtt_ros2/speed_provider_node.py

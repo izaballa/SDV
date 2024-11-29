@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/vesc/vesc.egg-info
+writing ../../build/vesc/vesc.egg-info/PKG-INFO
+writing dependency_links to ../../build/vesc/vesc.egg-info/dependency_links.txt
+writing entry points to ../../build/vesc/vesc.egg-info/entry_points.txt
+writing requirements to ../../build/vesc/vesc.egg-info/requires.txt
+writing top-level names to ../../build/vesc/vesc.egg-info/top_level.txt
+writing manifest file '../../build/vesc/vesc.egg-info/SOURCES.txt'
+reading manifest file '../../build/vesc/vesc.egg-info/SOURCES.txt'
+writing manifest file '../../build/vesc/vesc.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build
+creating /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build/lib
+creating /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build/lib/vesc
+copying vesc/__init__.py -> /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build/lib/vesc
+copying vesc/vesc_node.py -> /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build/lib/vesc
+running install
+running install_lib
+creating /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages/vesc
+copying /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build/lib/vesc/__init__.py -> /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages/vesc
+copying /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build/lib/vesc/vesc_node.py -> /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages/vesc
+byte-compiling /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages/vesc/__init__.py to __init__.cpython-38.pyc
+byte-compiling /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages/vesc/vesc_node.py to vesc_node.cpython-38.pyc
+running install_data
+creating /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/share/ament_index
+creating /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/share/ament_index/resource_index
+creating /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/share/ament_index/resource_index/packages
+copying resource/vesc -> /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/share/ament_index/resource_index/packages
+copying package.xml -> /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/share/vesc
+running install_egg_info
+Copying ../../build/vesc/vesc.egg-info to /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages/vesc-0.0.0-py3.8.egg-info
+running install_scripts
+Installing vesc_node script to /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/vesc
+writing list of installed files to '/home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/install.log'

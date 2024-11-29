@@ -1,0 +1,4 @@
+vesc_node:
+  ros__parameters:
+    vesc_port: '/dev/ttyACM0'
+    vesc_baudrate: 115200

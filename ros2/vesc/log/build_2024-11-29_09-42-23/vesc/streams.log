@@ -1,0 +1,21 @@
+[0.598s] Invoking command in '/home/natxozm13/Desktop/SDV/ros2/vesc/src/vesc': PYTHONPATH=/home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vesc build --build-base /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build install --record /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/install.log --single-version-externally-managed install_data
+[0.818s] running egg_info
+[0.818s] writing ../../build/vesc/vesc.egg-info/PKG-INFO
+[0.819s] writing dependency_links to ../../build/vesc/vesc.egg-info/dependency_links.txt
+[0.819s] writing entry points to ../../build/vesc/vesc.egg-info/entry_points.txt
+[0.819s] writing requirements to ../../build/vesc/vesc.egg-info/requires.txt
+[0.820s] writing top-level names to ../../build/vesc/vesc.egg-info/top_level.txt
+[0.855s] reading manifest file '../../build/vesc/vesc.egg-info/SOURCES.txt'
+[0.856s] writing manifest file '../../build/vesc/vesc.egg-info/SOURCES.txt'
+[0.857s] running build
+[0.857s] running build_py
+[0.857s] running install
+[0.858s] running install_lib
+[0.859s] running install_data
+[0.859s] running install_egg_info
+[0.860s] removing '/home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages/vesc-0.0.0-py3.8.egg-info' (and everything under it)
+[0.863s] Copying ../../build/vesc/vesc.egg-info to /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages/vesc-0.0.0-py3.8.egg-info
+[0.863s] running install_scripts
+[0.885s] Installing vesc_node script to /home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/vesc
+[0.886s] writing list of installed files to '/home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/install.log'
+[0.903s] Invoked command in '/home/natxozm13/Desktop/SDV/ros2/vesc/src/vesc' returned '0': PYTHONPATH=/home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/natxozm13/Desktop/SDV/ros2/vesc/install/vesc/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vesc build --build-base /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/build install --record /home/natxozm13/Desktop/SDV/ros2/vesc/build/vesc/install.log --single-version-externally-managed install_data
