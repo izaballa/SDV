@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #000428, #004e92);
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.dashboard {
+    text-align: center;
+}
+
+.speed-display {
+    font-size: 80px;
+    border: 5px solid white;
+    border-radius: 50%;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#speed-value {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.unit {
+    font-size: 20px;
+    margin-top: 10px;
+}
