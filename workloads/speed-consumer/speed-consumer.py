@@ -38,7 +38,7 @@ def on_message(client, userdata, message):
     except Exception as e:
         log(f"Error decoding message: {e}")
 
-# Conectar y configurar MQTT
+# Conectar y configurar MQTT 
 def connect_mqtt():
     try:
         client.reconnect_delay_set(min_delay=1, max_delay=120)

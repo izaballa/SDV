@@ -30,7 +30,7 @@ workloads:
     dependencies:
       mqtt-broker: ADD_COND_RUNNING
     runtimeConfig: |
-      image: ghcr.io/izaballa/speed-consumer-mqtt:v1.0.1
+      image: ghcr.io/izaballa/speed-consumer-mqtt:v1.0.2
       commandOptions:
         - "--net=host"
         - "-e"
