@@ -12,7 +12,7 @@ def generate_launch_description():
     )
 
     # Nodo VESC
-    vesc_node = Node(
+    speed_provider_node = Node(
         package='mqtt_ros2',                           # Nombre del paquete
         executable='speed_provider_node',              # Nodo a ejecutar
         name='speed_provider_node',                    # Nombre del nodo
@@ -21,5 +21,5 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        vesc_node
+        speed_provider_node
     ])
