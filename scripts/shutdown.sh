@@ -25,16 +25,33 @@ delete_workloads() {
     log "Eliminando workloads..."
     ank -k delete workload speed-consumer
     ank -k delete workload speed-provider
+    ank -k delete workload mqtt-ros2
     ank -k delete workload mqtt-broker
 }
 
 # Paso 2: Detener servicios y contenedores en el agente remoto
-stop_agent_services() {
+stop_agent_services1() {
     log "Deteniendo servicios en el agente remoto..."
 
     # Pedir usuario SSH e IP del agente
     read -p "Introduce el usuario SSH del agente (ej. natxozm13): " SSH_USER
     read -p "Introduce la IP del agente (ej. 192.168.1.10): " AGENT_IP
+
+    ssh -t "$SSH_USER@$AGENT_IP" 'sudo systemctl stop ank-agent.service'
+
+    if [ $? -eq 0 ]; then
+        log "Servicios y contenedores en el agente remoto detenidos."
+    else
+        error "Error al detener servicios en el agente remoto $AGENT_IP."
+    fi
+}
+
+stop_agent_services2() {
+    log "Deteniendo servicios en el agente remoto..."
+
+    # Pedir usuario SSH e IP del agente
+    read -p "Introduce el usuario SSH del agente (ej. natxozm13): " SSH_USER
+    read -p "Introduce la IP del agente (ej. 192.168.1.12): " AGENT_IP
 
     ssh -t "$SSH_USER@$AGENT_IP" 'sudo systemctl stop ank-agent.service'
 
@@ -72,7 +89,8 @@ close_opened_terminals() {
 main() {
     log "Automatización de cierre de Eclipse Ankaios."
     delete_workloads
-    stop_agent_services
+    stop_agent_services1
+    stop_agent_services2
     stop_server_services
     close_opened_terminals
     log "Cierre completado."

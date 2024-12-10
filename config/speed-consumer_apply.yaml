@@ -1,0 +1,13 @@
+apiVersion: v0.1
+workloads:
+  speed-consumer:
+    runtime: podman
+    agent: infotainment
+    dependencies:
+      speed-provider: ADD_COND_RUNNING
+    runtimeConfig: |
+      image: ghcr.io/izaballa/speed-consumer-mqtt:v1.0.2
+      commandOptions:
+        - "--net=host"
+        - "-e"
+        - "MQTT_BROKER_ADDR=192.168.1.11"

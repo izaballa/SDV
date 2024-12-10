@@ -1,0 +1,19 @@
+apiVersion: v0.1
+workloads:
+  mqtt-ros2:
+      runtime: podman
+      agent: agent_ros2
+      dependencies:
+        speed-provider: ADD_COND_RUNNING
+      runtimeConfig: |
+        image: ghcr.io/izaballa/mqtt_ros2:v1.0.1
+        commandOptions:
+          - "--net=host"
+          - "-e"
+          - "ROS_IP=192.168.1.12"
+          - "-e"
+          - "ROS_HOSTNAME=192.168.1.12"
+          - "-e"
+          - "ROS_DOMAIN_ID=0"
+          - "-e"
+          - "ROS_DISTRO=foxy"

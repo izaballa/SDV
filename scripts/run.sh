@@ -55,7 +55,7 @@ start_server_services() {
 }
 
 # Paso 4: Iniciar ank-agent en el agente
-start_agent() {
+start_agent1() {
     log "Iniciando ank-agent en el agente remoto (192.168.1.10)..."
     
     # IP del servidor Ankaios
@@ -65,8 +65,29 @@ start_agent() {
     read -p "Introduce el usuario SSH del agente (ej. natxozm13): " SSH_USER
     read -p "Introduce la IP del agente (ej. 192.168.1.10): " AGENT_IP
     
-    # Conectar por SSH y ejecutar el comando en la máquina remota (Igual no es necesario)
+    # Conectar por SSH y ejecutar el comando en la máquina remota 
     gnome-terminal -- bash -c "ssh \"$SSH_USER@$AGENT_IP\" 'ank-agent -k --name infotainment --server-url http://$SERVER_IP:25551'; exec bash"
+    
+    
+    if [ $? -eq 0 ]; then
+        log "Agente iniciado remotamente en $AGENT_IP."
+    else
+        error "Error al iniciar el agente en la máquina remota $AGENT_IP."
+    fi
+}
+
+start_agent2() {
+    log "Iniciando ank-agent en el agente remoto (192.168.1.12)..."
+    
+    # IP del servidor Ankaios
+    read -p "Introduce la IP del servidor Ankaios (ej. 192.168.1.11): " SERVER_IP
+
+    # Pedir usuario SSH e IP del agente
+    read -p "Introduce el usuario SSH del agente (ej. natxozm13): " SSH_USER
+    read -p "Introduce la IP del agente (ej. 192.168.1.12): " AGENT_IP
+    
+    # Conectar por SSH y ejecutar el comando en la máquina remota 
+    gnome-terminal -- bash -c "ssh \"$SSH_USER@$AGENT_IP\" 'ank-agent -k --name agent_ros2 --server-url http://$SERVER_IP:25551'; exec bash"
     
     
     if [ $? -eq 0 ]; then
@@ -87,6 +108,7 @@ show_logs() {
     
     #log "Logs del agente (remoto):" Ejecutar en terminal remota
     #gnome-terminal -- bash -c "ssh \"$SSH_USER@$AGENT_IP\" 'podman logs -f $(podman ps -a | grep speed-consumer | awk '{print $1}')'; exec bash"
+    #podman logs -f $(podman ps -a | grep mqtt_ros2 | awk '{print $1}')
 }
 
 # Ejecución del script
@@ -95,7 +117,8 @@ main() {
     configure_ank_server_service
     copy_state_yaml
     start_server_services
-    start_agent 
+    start_agent1
+    start_agent2 
     show_logs
     log "Puesta en marcha completada."
 }
