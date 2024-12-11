@@ -1,0 +1,12 @@
+apiVersion: v0.1
+configs:
+  vehicle-data-sender-config:
+    env:
+      - key: MQTT_BROKER_ADDR
+        value: "192.168.1.11"
+      - key: MQTT_BROKER_PORT
+        value: "1883"
+      - key: TOPIC
+        value: vehicle/1/sensors/speed
+      - key: INTERVAL
+        value: "10"

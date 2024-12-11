@@ -1,0 +1,27 @@
+apiVersion: v0.1
+workloads:
+  vehicle-data-sender:
+    runtime: podman
+    restartPolicy: NEVER
+    agent: agent_A
+    configs:
+      c: vehicle-data-sender-config
+    runtimeConfig: |
+      image: ghcr.io/eclipse-ankaios/vehicle-data-sender:0.1.0
+      commandOptions:
+        - "--net=host"
+        {{#each c.env}}
+        - "-e"
+        - "{{key}}={{value}}"
+        {{/each}}
+configs:
+  vehicle-data-sender-config:
+    env:
+      - key: MQTT_BROKER_ADDR
+        value: "192.168.1.11"
+      - key: MQTT_BROKER_PORT
+        value: "1883"
+      - key: TOPIC
+        value: vehicle/1/sensors/speed
+      - key: INTERVAL
+        value: "1"

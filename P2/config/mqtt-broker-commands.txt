@@ -1,0 +1,19 @@
+podman run -d --net=host docker.io/eclipse-mosquitto:2.0.20 sh -c "echo 'listener 1883 192.168.1.11\nallow_anonymous true' > /mosquitto/config/mosquitto.conf && mosquitto -c /mosquitto/config/mosquitto.conf"
+
+podman run --net=host docker.io/eclipse-mosquitto:2.0.20 mosquitto_sub -h 192.168.1.11 -t "vehicle/1/#" -v
+
+sudo systemctl start ank-server ank-agent
+
+ank -k get workloads
+
+TOPIC=vehicle/1/manifest/apply/req
+FILE=vehicle-data-sender.yaml
+podman run --rm --net=host -v $PWD/$FILE:/$FILE docker.io/eclipse-mosquitto:2.0.20 mosquitto_pub -h 192.168.1.11 -t "$TOPIC" -f $FILE
+
+TOPIC=vehicle/1/manifest/apply/req
+FILE=config.yaml
+podman run --rm --net=host -v $PWD/$FILE:/$FILE docker.io/eclipse-mosquitto:2.0.20 mosquitto_pub -h 192.168.1.11 -t "$TOPIC" -f $FILE
+
+TOPIC=vehicle/1/manifest/delete/req
+FILE=vehicle-data-sender.yaml
+podman run --rm --net=host -v $PWD/$FILE:/$FILE docker.io/eclipse-mosquitto:2.0.20 mosquitto_pub -h 192.168.1.11 -t "$TOPIC" -f $FILE
