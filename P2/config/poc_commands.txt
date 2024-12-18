@@ -1,0 +1,34 @@
+Cloud Layer (192.168.1.11):
+podman run --name mqtt-broker / 
+--net=host docker.io/eclipse-mosquitto:2.0.20 /
+sh -c "echo -e 'listener 1883\nallow_anonymous true' > /mosquitto/config/mosquitto.conf && mosquitto -c /mosquitto/config/mosquitto.conf"
+
+Operador (192.168.1.10):
+- Suscribir para monitorear los topics de un vehículo:
+    mosquitto_sub -h 192.168.1.11 -t "vehicle/1/#" -v
+
+- Instalación remota del publicador de los datos del vehículo (Remote installation of a vehicle data sender)
+    TOPIC=vehicle/1/manifest/apply/req
+    FILE=vehicle-data-sender.yaml
+    (Manualmente: mosquitto_pub -h 192.168.1.11 -t "$TOPIC" -f $FILE)
+    podman run --rm --net=host -v $PWD/$FILE:/$FILE docker.io/eclipse-mosquitto:2.0.20 mosquitto_pub -h 192.168.1.11 -t "$TOPIC" -f $FILE (directorio actual fichero YAML)
+
+- Monitoreo del estado de los workloads (Request the workload states)
+    TOPIC=vehicle/1/state/req
+    MSG='["workloadStates"]'
+    podman run --rm --net=host docker.io/eclipse-mosquitto:2.0.20 mosquitto_pub -h 192.168.1.11 -t "$TOPIC" -m "$MSG"
+
+- Reconfiguración remota del publicador de los datos del vehículo (Remote re-configuration of the vehicle data sender)
+    TOPIC=vehicle/1/manifest/apply/req
+    FILE=config.yaml
+    podman run --rm --net=host -v $PWD/$FILE:/$FILE docker.io/eclipse-mosquitto:2.0.20 mosquitto_pub -h 192.168.1.11 -t "$TOPIC" -f $FILE
+
+- Eliminación remota de un workload (Remote deletion of a workload)
+    TOPIC=vehicle/1/manifest/delete/req
+    FILE=vehicle-data-sender.yaml
+    podman run --rm --net=host -v $PWD/$FILE:/$FILE docker.io/eclipse-mosquitto:2.0.20 mosquitto_pub -h 192.168.1.11 -t "$TOPIC" -f $FILE
+
+SDV Layer (192.168.1.12):
+- Arrancar Ankaios en dispositivo edge (Deploying the fleet connector)
+    sudo systemctl start ank-server ank-agent
+    ank -k get workloads
