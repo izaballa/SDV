@@ -1,0 +1,21 @@
+apiVersion: v0.1
+workloads:
+  z-bridge-ros2dds:
+    runtime: podman
+    restartPolicy: NEVER
+    agent: agent_A
+    configs:
+      c: z-bridge-ros2dds-config
+    runtimeConfig: |
+      image: ghcr.io/izaballa/z-bridge-ros2dds:v1.0.2
+      commandOptions:
+        - "--net=host"
+        {{#each c.env}}
+        - "-e"
+        - "{{key}}={{value}}"
+        {{/each}}
+configs:
+  z-bridge-ros2dds-config:
+    env:
+      - key: ROS_DISTRO
+        value: "foxy"
