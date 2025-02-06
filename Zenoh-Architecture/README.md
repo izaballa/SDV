@@ -16,11 +16,12 @@ Una vez desplegado el router Zenoh, se pasa ha activar Eclipse Ankaios en la VM 
 sudo systemctl start ank-server.service
 sudo systemctl start ank-agent.service
 
-Hay que tener en cuenta 
-
-Ahora desde el operador se solicitan desplegar las dos aplicaciones básicas del funcionamiento de esta arquitectura:
+Antes de arrancar Ankaios hay que especificar en /etc/ankaios/state.yaml el despliegue de la aplicación básica encargada de gestionar la lógica de las solicitudes del operador: 
 - z-fleet-connector: Contenedor que gestiona las solicitudes del operador para instalar/reconfigurar/eliminar un workload.
+
+Con z-fleet-connector corriendo en la VM 3, ahora desde el operador se puede solicitan el despliegue de las dos aplicaciones básicas del funcionamiento de esta arquitectura:
 - z-bridge-ros2dds
+- 
 
 
 ![image](https://github.com/user-attachments/assets/df9d3872-9134-4821-bbfd-bd5fe37a3af8)
