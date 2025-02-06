@@ -1,0 +1,10 @@
+apiVersion: v0.1
+configs:
+  z-vehicle-data-sender-config:
+    env:
+      - key: ZENO_ROUTER_ADDR
+        value: "tcp/192.168.1.11:7447"
+      - key: VIN
+        value: "1"
+      - key: INTERVAL
+        value: "10"
