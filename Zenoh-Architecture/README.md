@@ -20,8 +20,10 @@ Antes de arrancar Ankaios hay que especificar en /etc/ankaios/state.yaml el desp
 - z-fleet-connector: Contenedor que gestiona las solicitudes del operador para instalar/reconfigurar/eliminar un workload.
 
 Con z-fleet-connector corriendo en la VM 3, ahora desde el operador se puede solicitan el despliegue de las dos aplicaciones básicas del funcionamiento de esta arquitectura:
-- z-bridge-ros2dds
-- 
+- z-bridge-ros2dds: Bridge entre las comunicaciones Zenoh y ROS2, para que el operador pueda interactuar con los nodos ROS2 desplegados en la VM 3.
+- z-vehicle-data-sender: Aplicación que simula la publicación de valores de velocidad generados en la VM 3.
+
+Una vez están todos los workloads corriendo se puede ...
 
 
 ![image](https://github.com/user-attachments/assets/df9d3872-9134-4821-bbfd-bd5fe37a3af8)
