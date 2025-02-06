@@ -1,1 +1,2 @@
-pycdr2=1.0.0
+eclipse-zenoh == 1.1.1
+pycdr2 == 1.0.0
