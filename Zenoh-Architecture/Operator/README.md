@@ -7,7 +7,7 @@ This document describes the operations that can be performed on the operator by 
 The following are the requests that can be made towards the Zenoh Router REST API:
 
 ### Deploy or update a workload
-To deploy or update a workload, execute the following command:  [config_file](https://github.com/izaballa/SDV/tree/main/Zenoh-Architecture/SDV-Layer/config
+To deploy or update a workload, execute the following command:  [config_file](https://github.com/izaballa/SDV/tree/main/Zenoh-Architecture/SDV-Layer/config)
 ```bash
 curl -X PUT -H "Content-Type: application/yaml" --data-binary @<config_file>.yaml 'http://<IP-zenohd>:8000/vehicle/<ID_vehicle>/manifest/apply/req'
 ```
