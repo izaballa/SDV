@@ -9,7 +9,7 @@ The following are the requests that can be made towards the Zenoh Router REST AP
 ### Deploy or update a workload
 To deploy or update a workload, execute the following command: 
 ```bash
-curl -X PUT -H "Content-Type: application/yaml" --data-binary @<config_file>.yaml 'http://<IP-zenohd>:8000/vehicle/<ID_vehicle>/manifest/apply/req'
+curl -X PUT -H "Content-Type: application/yaml" --data-binary @<config_file>.yaml 'http://<IP_zenohd>:8000/vehicle/<ID_vehicle>/manifest/apply/req'
 ```
 
 ### Delete a workload
