@@ -24,8 +24,8 @@ To get the current status of Eclipse Ankaios, use:
 curl -X PUT -d '["workloadStates"]' 'http://<IP_zenohd>:8000/vehicle/<ID-vehicle>/state/delete/req'
 ```
 
-#### Ficheros YAML
-Los ficheros YAML de configuración utilizados en este repo:  [config_file](https://github.com/izaballa/SDV/tree/main/Zenoh-Architecture/SDV-Layer/config)
+#### YAML files
+YAML configuration files used in this repo: [config_file](https://github.com/izaballa/SDV/tree/main/Zenoh-Architecture/SDV-Layer/config)
 
 ## 2. Remote control of a ROS2 node (Turtlesim)
 
