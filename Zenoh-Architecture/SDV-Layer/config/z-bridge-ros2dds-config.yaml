@@ -1,0 +1,6 @@
+apiVersion: v0.1
+configs:
+  z-bridge-ros2dds-config:
+    env:
+      - key: ROS_DISTRO
+        value: "foxy"  
