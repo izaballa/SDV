@@ -8,6 +8,19 @@ Para el despligue de esta prueba se utilizan tres máquinas virtuales (VM) que c
 Proof of concept (POC)
 
 Para desplegar la prueba se empieza poniendo en marcha el router Zenoh con el comando:
+podman run --init --net=host docker.io/eclipse/zenoh --rest-http-port 8000
+
+Con la opción --rest-http-port 8000 se habilita en el router una REST API en el puerto 8000 para poder comunicar vía HTTP las máquinas VM 1 y VM 2.
+
+Una vez desplegado el router Zenoh, se pasa ha activar Eclipse Ankaios en la VM 3 con los siguientes comandos:
+sudo systemctl start ank-server.service
+sudo systemctl start ank-agent.service
+
+Hay que tener en cuenta 
+
+Ahora desde el operador se solicitan desplegar las dos aplicaciones básicas del funcionamiento de esta arquitectura:
+- z-fleet-connector: Contenedor que gestiona las solicitudes del operador para instalar/reconfigurar/eliminar un workload.
+- z-bridge-ros2dds
 
 
 ![image](https://github.com/user-attachments/assets/df9d3872-9134-4821-bbfd-bd5fe37a3af8)
