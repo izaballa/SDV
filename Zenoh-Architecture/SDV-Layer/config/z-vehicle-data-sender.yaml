@@ -1,0 +1,25 @@
+apiVersion: v0.1
+workloads:
+  z-vehicle-data-sender:
+    runtime: podman
+    restartPolicy: NEVER
+    agent: agent_A
+    configs:
+      c: z-vehicle-data-sender-config
+    runtimeConfig: |
+      image: ghcr.io/izaballa/z-vehicle-data-sender:v1.0.11
+      commandOptions:
+        - "--net=host"
+        {{#each c.env}}
+        - "-e"
+        - "{{key}}={{value}}"
+        {{/each}}
+configs:
+  z-vehicle-data-sender-config:
+    env:
+      - key: ZENO_ROUTER_ADDR
+        value: "tcp/192.168.1.11:7447"
+      - key: VIN
+        value: "1"
+      - key: INTERVAL
+        value: "1"
