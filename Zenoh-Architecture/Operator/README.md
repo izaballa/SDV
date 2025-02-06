@@ -1,39 +1,39 @@
-# Operaciones disponibles en el operador
+# Operations available on the operator
 
-Este documento describe las operaciones que se pueden realizar en el operador mediante el uso de la API REST del router Zenoh, el control de un nodo ROS2 Turtlesim y la monitorización de tópicos con un suscriptor Zenoh.
+This document describes the operations that can be performed on the operator by using the Zenoh router REST API, controlling a ROS2 Turtlesim node and monitoring topics with a Zenoh subscriber.
 
-## 1. Interacción con la API REST de Zenoh Router
+## 1. Interacting with the Zenoh Router REST API
 
-A continuación, se detallan las solicitudes que se pueden realizar hacia la API REST del router Zenoh:
+The following are the requests that can be made towards the Zenoh Router REST API:
 
-### Desplegar o actualizar un workload
-Para desplegar o actualizar un workload, ejecutar el siguiente comando:
+### Deploy or update a workload
+To deploy or update a workload, execute the following command:
 ```bash
 curl -X PUT -H "Content-Type: application/yaml" --data-binary @<config_file>.yaml 'http://<IP-zenohd>:8000/vehicle/<ID_vehicle>/manifest/apply/req'
 ```
 
-### Eliminar un workload
-Para eliminar un workload previamente desplegado, ejecutar:
+### Delete a workload
+To delete a previously deployed workload, run:
 ```bash
 curl -X PUT -H "Content-Type: application/yaml" --data-binary @<config_file>.yaml 'http://<IP_zenohd>:8000/vehicle/<ID_vehicle>/manifest/delete/req'
 ```
 
-### Consultar el estado actual de Eclipse Ankaios
-Para obtener el estado actual de Eclipse Ankaios, usar:
+### Querying the current status of Eclipse Ankaios
+To get the current status of Eclipse Ankaios, use:
 ```bash
 curl -X PUT -d '["workloadStates"]' 'http://<IP_zenohd>:8000/vehicle/<ID-vehicle>/state/delete/req'
 ```
 
-## 2. Control remoto de un nodo ROS2 (Turtlesim)
+## 2. Remote control of a ROS2 node (Turtlesim)
 
-Se puede controlar el movimiento de un nodo ROS2 Turtlesim (o cualquier robot que reciba mensajes Twist) con el siguiente comando:
+You can control the movement of a ROS2 Turtlesim node (or any robot receiving Twist messages) with the following command:
 ```bash
 python3 ros2_teleop.py -m client -e tcp/<IP_zenohd>:7447
 ```
 
-## 3. Monitorización de tópicos con un suscriptor Zenoh
+## 3. Monitoring topics with a Zenoh subscriber
 
-Para desplegar una aplicación Zenoh que se conecte al router Zenoh y se suscriba a los tópicos especificados en la opción -k, ejecutar:
+To deploy a Zenoh application that connects to the Zenoh router and subscribes to the topics specified in the -k option, run:
 ```bash
 python3 z_sub.py -m client -e tcp/<IP_zenohd>:7447 -k 'vehicle/<ID_vehicle>/**'
 ```
