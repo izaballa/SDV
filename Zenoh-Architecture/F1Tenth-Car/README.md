@@ -20,3 +20,8 @@ It's important to make sure that NO DDS communication can occur between 2 hosts 
 To make sure of this, you can either:
 - use ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST after Iron and ROS_LOCALHOST_ONLY=1 before Iron. Preferably, enable MULTICAST on the loopback interface with this command (on Linux): sudo ip l set lo multicast on
 - use different ROS_DOMAIN_ID on each hosts
+
+Configuración ~/.bashrc:
+source /opt/ros/foxy/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp # CycloneDDS implementación predeterminada
+export ROS_LOCALHOST_ONLY=1 # Restringir comunicación DDS al localhost utilizado
