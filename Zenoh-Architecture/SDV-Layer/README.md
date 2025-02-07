@@ -50,13 +50,26 @@ curl -sfL https://github.com/eclipse-ankaios/ankaios/releases/latest/download/in
 ```
 The installation process automatically detects the platform and downloads the appropriate binaries. The default installation path for the binaries is ```/usr/local/bin``` but can be changed. The installation also creates systemd unit files and an uninstall script.
 
+## Utilidades SDV Layer
 
----
-Comandos:
-sudo nano /etc/ankaios/state.yaml
+You can start workloads in Ankaios in a number of ways. For example, you can define a file with the startup configuration and use systemd to start Ankaios. The startup configuration file contains all of the workloads and their configuration that you want to be started by Ankaios. The default config is stored in ```/etc/ankaios/state.yaml```.
 
+To start the Ankaios srever:
+```bash
 sudo systemctl start ank-server.service
+```
+
+The Ankaios server will read the config but detect that no agent is available that could start the workload. It is required start an agent:
+```bash
 sudo systemctl start ank-agent.service
+```
+
+This Ankaios agent will run the workload that has been assigned to it. We can use the Ankaios CLI to check the current state:
+```bash
+ank -k get state
+```
+
+Or use:
 
 watch ank -k get workloads
 watch ank -k get agents
