@@ -1,5 +1,11 @@
-SDV Layer
+# SDV Layer
 
+## Eclipse Ankaios
+[Eclipse Ankaios](https://github.com/eclipse-ankaios/ankaios/tree/main) provides workload and container orchestration for automotive High Performance Computing Software (HPCs). While it can be used for various fields of applications, it is developed from scratch for automotive use cases and provides a slim yet powerful solution to manage containerized applications. It supports container runtime Podman. Eclipse Ankaios is independent of existing communication frameworks like SOME/IP, DDS, or REST API.
+
+Eclipse Ankaios manages multiple nodes and virtual machines with a single unique API in order to start, stop, configure, and update containers and workloads. It provides a central place to manage automotive applications with a setup consisting of one server and multiple agents. Usually one agent per node connects to one or more runtimes that are running the workloads.
+
+Documentación arquitectura [Architecture Overview](https://eclipse-ankaios.github.io/ankaios/latest/architecture/)
 
 
 
