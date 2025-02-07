@@ -35,12 +35,11 @@ sudo apt-get update
 sudo apt-get -y install podman
 ```
 
-<div style="display: flex; align-items: center;">
-  <div style="border-right: 1px solid black; height: 100px; margin-right: 10px;"></div>
-  <div>
-    Este es el texto a la derecha de la barra vertical.
-  </div>
-</div>
+⚠️ On Ubuntu 24.04 there is a known problem with Podman stopping containers. The following workaround disables AppArmor for Podman. Run the following steps as root after installation of Podman:
+```bash
+mkdir -p /etc/containers/containers.conf.d
+printf '[CONTAINERS]\napparmor_profile=""\n' > /etc/containers/containers.conf.d/disable-apparmor.conf
+```
 
 
 ---
