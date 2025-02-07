@@ -36,12 +36,19 @@ sudo apt-get -y install podman
 ```
 
 ---
-
 ⚠️ On Ubuntu 24.04 there is a known problem with Podman stopping containers. The following workaround disables AppArmor for Podman. Run the following steps as root after installation of Podman:
 ```bash
 mkdir -p /etc/containers/containers.conf.d
 printf '[CONTAINERS]\napparmor_profile=""\n' > /etc/containers/containers.conf.d/disable-apparmor.conf
 ```
+---
+
+#### Setup with script
+The recommended way to install Ankaios is using the installation script. To install the latest release version of Ankaios, please run the following command:
+```bash
+curl -sfL https://github.com/eclipse-ankaios/ankaios/releases/latest/download/install.sh | bash -
+```
+The installation process automatically detects the platform and downloads the appropriate binaries. The default installation path for the binaries is ```/usr/local/bin``` but can be changed. The installation also creates systemd unit files and an uninstall script.
 
 
 ---
