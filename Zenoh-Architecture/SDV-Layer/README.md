@@ -5,11 +5,9 @@
 
 Eclipse Ankaios manages multiple nodes and virtual machines with a single unique API in order to start, stop, configure, and update containers and workloads. It provides a central place to manage automotive applications with a setup consisting of one server and multiple agents. Usually one agent per node connects to one or more runtimes that are running the workloads.
 
-Documentación arquitectura [Architecture Overview](https://eclipse-ankaios.github.io/ankaios/latest/architecture/)
-
 ![image](https://github.com/user-attachments/assets/6a9850b8-1ff9-492b-baaf-8d9d20d1998d)
-![image](https://github.com/user-attachments/assets/7b2e600d-4797-4a45-adcc-1648f192722c)
 
+For more information, see the Eclipse Ankaios [documentation](https://eclipse-ankaios.github.io/ankaios/latest/).
 
 
 
