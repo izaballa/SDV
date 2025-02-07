@@ -29,8 +29,5 @@ error: externally-managed-environment
     virtual environment for you. Make sure you have pipx installed.
     
     See /usr/share/doc/python3.12/README.venv for more information.
-
-note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
-hint: See PEP 668 for the detailed specification.
 ```
 This error can be overridden, at the risk of breaking your Python installation or operating system, by passing ```--break-system-packages```.
