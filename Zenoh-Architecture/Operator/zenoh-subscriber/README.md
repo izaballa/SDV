@@ -6,10 +6,17 @@ This library provides a Python binding based on the main Zenoh implementation wr
 ### How to install it
 The Eclipse zenoh-python library is available on [Pypi.org](https://pypi.org/project/eclipse-zenoh/). Install the latest available version using ```pip```:
 ```bash
-pip3 install eclipse-zenoh
+pip install eclipse-zenoh
 ```
+⚠️ zenoh-python is developped in Rust. On Pypi.org provide binary wheels for the most common platforms (Linux x86_64, i686, ARMs, MacOS universal2 and Windows amd64). But also a source distribution package for other platforms. However, for ```pip``` to be able to build this source distribution, there are some prerequisites:
+- ```pip``` version 19.3.1 minimum (for full support of PEP 517). If necessary upgrade it with command: ```sudo pip install --upgrade pip```.
+- Have a Rust toolchain installed (instructions at [rustup.rs](https://rustup.rs/)). Unix command: ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh```.
 
-⚠️ En mi caso para Python 3.12 y pip 24.0 en Ubuntu la release 24.04 tengo el siguiente error:
+### Supported Python versions and platforms
+This library has been tested with Python 3.8, 3.9, 3.10, 3.11 and 3.12 .
+
+## Problems
+⚠️ For Python 3.12 and ```pip``` 24.0 in Ubuntu release 24.04 the following error occurs:
 ```bash
 User@Ubuntu:~$ pip3 install eclipse-zenoh
 error: externally-managed-environment
