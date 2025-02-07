@@ -8,7 +8,7 @@ Eclipse Ankaios manages multiple nodes and virtual machines with a single unique
 ![image](https://github.com/user-attachments/assets/6a9850b8-1ff9-492b-baaf-8d9d20d1998d) 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/6a9850b8-1ff9-492b-baaf-8d9d20d1998d" alt="image" width="300"/>
+  <img src="https://github.com/user-attachments/assets/6a9850b8-1ff9-492b-baaf-8d9d20d1998d" alt="image"/>
 </p>
 
 For more information, see the Eclipse Ankaios [documentation](https://eclipse-ankaios.github.io/ankaios/latest/).
