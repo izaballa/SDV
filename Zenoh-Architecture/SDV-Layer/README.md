@@ -11,7 +11,21 @@ Eclipse Ankaios manages multiple nodes and virtual machines with a single unique
 
 For more information, see the Eclipse Ankaios [documentation](https://eclipse-ankaios.github.io/ankaios/latest/).
 
+### Installation
+Ankaios has been tested with the following Linux distributions. Others might work as well but have not been tested.
+- **Ubuntu 24.04 LTS**
+- **Ubuntu 22.04 LTS**
+- **Ubuntu 20.04 LTS**
 
+#### System requirements
+Ankaios currently requires a Linux OS and is available for ```x86_64``` and ```arm64``` targets.
+
+The minimum system requirements are (tested with [EB corbos Linux – built on Ubuntu](https://www.elektrobit.com/products/ecu/eb-corbos/linux-built-on-ubuntu/)):
+
+| Resource | Min      |
+|----------|----------|
+| CPU      | 1 core   |
+| RAM      | 128 MB   |
 
 ---
 Comandos:
