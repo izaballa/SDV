@@ -26,4 +26,4 @@ Para soportar UDP multicast solo se soporta en Linux utilizando la opción ```--
 
 ## Configuration options
 A Zenoh configuration file can be provided via CLI to the Zenoh router.
-- ```-c, --config <DEFAULT_CONFIG.json5>```: A JSON5 configuration file. DEFAULT_CONFIG.json5 shows the schema of this file and the available options.
+- ```-c, --config <DEFAULT_CONFIG.json5>```: A JSON5 configuration file. [DEFAULT_CONFIG.json5](https://github.com/izaballa/SDV/blob/main/Zenoh-Architecture/Cloud-Layer/DEFAULT_CONFIG.json5) shows the schema of this file and the available options.
