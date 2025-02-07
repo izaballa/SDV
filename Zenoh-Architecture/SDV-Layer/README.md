@@ -35,6 +35,14 @@ sudo apt-get update
 sudo apt-get -y install podman
 ```
 
+<div style="display: flex; align-items: center;">
+  <div style="border-right: 1px solid black; height: 100px; margin-right: 10px;"></div>
+  <div>
+    Este es el texto a la derecha de la barra vertical.
+  </div>
+</div>
+
+
 ---
 Comandos:
 sudo nano /etc/ankaios/state.yaml
