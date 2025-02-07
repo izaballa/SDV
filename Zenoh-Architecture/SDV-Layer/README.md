@@ -35,6 +35,8 @@ sudo apt-get update
 sudo apt-get -y install podman
 ```
 
+---
+
 ⚠️ On Ubuntu 24.04 there is a known problem with Podman stopping containers. The following workaround disables AppArmor for Podman. Run the following steps as root after installation of Podman:
 ```bash
 mkdir -p /etc/containers/containers.conf.d
