@@ -13,30 +13,30 @@ sudo apt install zenoh
 Then you can start run ```zenohd```.
 
 ## Run Zenoh router in a Docker container 
-El router Zenoh está disponible como imagen Docker. Se despliega una sola instancia en la máquina host local ejecutando:
+The Zenoh router is available as a Docker image. A single instance is deployed on the local host machine running:
 ```bash
 podman run --init --net=host docker.io/eclipse/zenoh --rest-http-port 8000
 ```
 
-Los puertos utilizados por Zenoh son:
-- **7447/tcp**: El protocolo Zenoh via TCP.
-- **8000/tcp**: La REST API Zenoh.
+The ports used by Zenoh are:
+- **7447/tcp**: The Zenoh protocol via TCP.
+- 8000/tcp**: The Zenoh REST API.
 
-Para soportar UDP multicast solo se soporta en Linux utilizando la opción ```--net=host``` para hacer que el contenedor comparta el networking space del host. Aunque en este caso no se necesitaría, ya que las aplicaciones Zenoh se conectan al router con el locator como ```client``` con ```connect: {endpoints: ["tcp/<IP_zenohd>:7447"]}}```.
+To support UDP multicast it is only supported on Linux using the ```--net=host``` option to make the container share the host's networking space. Although in this case it would not be needed, since Zenoh applications connect to the router with the locator as ```client``` with ````connect: {endpoints: [“tcp/<IP_zenohd>:7447”]}}````.
 
 ## Configuration options
 A Zenoh configuration file can be provided via CLI to the Zenoh router.
 - ```-c, --config <DEFAULT_CONFIG.json5>```: A JSON5 configuration file. [DEFAULT_CONFIG.json5](https://github.com/izaballa/SDV/blob/main/Zenoh-Architecture/Cloud-Layer/DEFAULT_CONFIG.json5) shows the schema of this file and the available options.
-⚠️ Actualmente falla esta opción en la release 24.04 de Ubuntu.
+⚠️ This option is currently missing in Ubuntu 24.04 release.
 
 ## Zenoh router command line arguments
 Zenoh router accepts the following arguments:
 - ```-c, --config <PATH>```: The configuration file. Currently, this file must be a valid JSON5 or YAML file.
 - ```-l, --listen <ENDPOINT>```: Locators on which this router will listen for incoming sessions. Repeat this option to open several listeners. The following endpoints are currently supported:
-  - TCP: ```tcp/<host_name_or_IPv4_or_IPv6>:<port>```
-  - UDP: ```udp/<host_name_or_IPv4_or_IPv6>:<port>```
-  - TCP+TLS: ```tls/<host_name>:<port>```
-  - QUIC: ```quic/<host_name>:<port>```
+  - **TCP**: ```tcp/<host_name_or_IPv4_or_IPv6>:<port>```
+  - **UDP**: ```udp/<host_name_or_IPv4_or_IPv6>:<port>```
+  - **TCP+TLS**: ```tls/<host_name>:<port>```
+  - **QUIC**: ```quic/<host_name>:<port>```
 - ```-e, --connect <ENDPOINT>```: A peer locator this router will try to connect to. Repeat this option to connect to several peers or routers.
 - ```-i, --id <ID>```: The identifier (as an hexadecimal string, with odd number of chars (e.g.: A0B23...) that ```zenohd``` must use. If not set, a random unsigned 128bit integer will be used. ⚠️ This identifier must be unique in the system and must be 16 bytes maximum (32 chars).
 - ```-P, --plugin <PLUGIN>```: A plugin that must be loaded. You can give just the name of the plugin, ```zenohd``` will search for a library named ```libzenoh_plugin_\<name\>.so``` (exact name depending the OS). Or you can give such a string: ```"\<plugin_name\>:\<library_path\>"```. Repeat this option to load several plugins. If loading failed, ```zenohd``` will exit.
