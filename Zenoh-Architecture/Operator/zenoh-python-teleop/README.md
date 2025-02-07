@@ -8,3 +8,8 @@ The IDL (Interface Definition Language) part of the CycloneDDS package as standa
 
 PyCDR2 is the standalone version of ```cyclonedds.idl```. The documentation of [CycloneDDS](https://cyclonedds.io/docs/cyclonedds-python/latest/idl.html) still applies, you just have to replace ```cyclonedds.idl``` with ```pycdr2```.
 
+### How to install it
+Install the latest available version using ```pip```:
+```bash
+pip install pycdr2
+```
