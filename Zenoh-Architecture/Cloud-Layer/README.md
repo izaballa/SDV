@@ -20,7 +20,7 @@ podman run --init --net=host docker.io/eclipse/zenoh --rest-http-port 8000
 
 The ports used by Zenoh are:
 - **7447/tcp**: The Zenoh protocol via TCP.
-- 8000/tcp**: The Zenoh REST API.
+- **8000/tcp**: The Zenoh REST API.
 
 To support UDP multicast it is only supported on Linux using the ```--net=host``` option to make the container share the host's networking space. Although in this case it would not be needed, since Zenoh applications connect to the router with the locator as ```client``` with ````connect: {endpoints: [“tcp/<IP_zenohd>:7447”]}}````.
 
