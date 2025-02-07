@@ -27,6 +27,14 @@ The minimum system requirements are (tested with [EB corbos Linux – built on U
 | CPU      | 1 core   |
 | RAM      | 128 MB   |
 
+[Podman](https://podman.io/) needs to be installed as this is used as container runtime. For using the ```podman``` runtime, Podman version 3.4.2 is sufficient but the ```podman-kube``` runtime requires at least Podman version 4.3.1.
+
+The podman package is available in the official repositories for Ubuntu 20.10 and newer.
+```bash
+sudo apt-get update
+sudo apt-get -y install podman
+```
+
 ---
 Comandos:
 sudo nano /etc/ankaios/state.yaml
