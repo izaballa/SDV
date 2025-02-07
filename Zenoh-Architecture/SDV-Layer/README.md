@@ -23,3 +23,5 @@ sudo podman rmi -a
 
 sudo systemctl stop ank-server.service
 sudo systemctl stop ank-agent.service
+
+sudo podman logs -f $(sudo podman ps -a | grep <name_workload> | awk '{print $1}')
