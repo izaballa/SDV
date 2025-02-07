@@ -9,7 +9,7 @@ Los puertos utilizados por Zenoh son:
 - **7447/tcp**: El protocolo Zenoh via TCP.
 - **8000/tcp**: La REST API Zenoh.
 
-Para soportar UDP multicast solo se soporta en Linux utilizando la opción --net=host para hacer que el contenedor comparta el networking space del host. Aunque en este caso no se necesitaría, ya que las aplicaciones Zenoh se conectan al router con el locator como client con ```bash connect: {endpoints: ["tcp/<IP_zenohd>:7447"]}}```.
+Para soportar UDP multicast solo se soporta en Linux utilizando la opción --net=host para hacer que el contenedor comparta el networking space del host. Aunque en este caso no se necesitaría, ya que las aplicaciones Zenoh se conectan al router con el locator como client con ```connect: {endpoints: ["tcp/<IP_zenohd>:7447"]}}```.
 
 Router Zenoh (zenohd) en contenedor:
 - podman run --init --net=host docker.io/eclipse/zenoh --rest-http-port 8000
